@@ -4,9 +4,6 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <UserSecretsId>aspnet-Geek.IdentityServer4.Host-FA66652F-C90C-43BE-8C9B-AA4612877EA1</UserSecretsId>
   </PropertyGroup>
-  <ItemGroup>
-    <None Update="app.db" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="IdentityServer4.AspNetIdentity" Version="2.1.0" />
