@@ -40,7 +40,7 @@ namespace Geek.IdentityServer4.Host
 
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
-            services.AddIdentityServer()
+            services.AddIdentityServer(opt => opt.PublicOrigin = "https://sso.neverc.cn")
                 .AddDeveloperSigningCredential()
                 .AddAspNetIdentity<ApplicationUser>()
                 // this adds the config data from DB (clients, resources)
@@ -85,9 +85,8 @@ namespace Geek.IdentityServer4.Host
 
             app.UseStaticFiles();
 
+            // app.UseAuthentication();
             app.UseIdentityServer();
-
-            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
