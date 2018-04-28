@@ -31,7 +31,7 @@ namespace Geek.IdentityServer4.Host
         {
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
 
-            services.AddDbContextPool<ApplicationDbContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(connectionString));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
