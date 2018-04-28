@@ -20,6 +20,6 @@ docker rmi -f $(docker images -q -f dangling=true)
 # container
 echo ---------------container...---------------
 docker stop $CONTAINER || true && docker rm -f $CONTAINER || true
-docker run -d -p 50000:50000 --link net-mariadb:mysql --name $CONTAINER $IMGNAME
+docker run -d -p 50000:50000 --link my-mariadb:mysql --name $CONTAINER $IMGNAME
 
 echo 'done!'
