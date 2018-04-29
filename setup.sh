@@ -4,7 +4,7 @@ echo 'begin'
 echo ---------------variables...---------------
 GITHASH=`git rev-parse --short HEAD`
 IMGNAME=identityserver
-CONTAINER=identityserver-web
+CONTAINER=my-identityserver
 
 # publish
 echo ---------------publish...------------------
@@ -19,7 +19,9 @@ docker rmi -f $(docker images -q -f dangling=true)
 
 # container
 echo ---------------container...---------------
+echo "docker stop $CONTAINER || true && docker rm -f $CONTAINER || true"
 docker stop $CONTAINER || true && docker rm -f $CONTAINER || true
-docker run -d -p 50000:50000 --link my-mariadb:mysql --name $CONTAINER $IMGNAME
+echo "docker run -d -p 50000:50000 --link my-mariadb:mysql --name $CONTAINER $IMGNAME:"
+docker run --rm -d -p 50000:50000 --link my-mariadb:mysql --name=$CONTAINER $IMGNAME
 
 echo 'done!'
